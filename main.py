@@ -1,4 +1,4 @@
-"Main file"
+""" Main file """
 import pandas
 
 # reading data from the nato phonetic alphabet csv file
@@ -18,10 +18,13 @@ while game_is_on:
         break
 
     # user nato in dictionary
-    user_word_nato = {
-        letter: nato_dictionary[letter.title()] for letter in user_word
-    }
-    print("\nHere is your NATO code\n", user_word_nato)
-    # user nato in list form
-    user_word_nato_list = [code for (letter, code) in user_word_nato.items()]
-    print("\n", user_word_nato_list)
+    try:
+        user_word_nato = {
+            letter: nato_dictionary[letter.title()] for letter in user_word
+        }
+        print("\nHere is your NATO code\n", user_word_nato)
+        # user nato in list form
+        user_word_nato_list = [code for (letter, code) in user_word_nato.items()]
+        print("\n", user_word_nato_list)
+    except KeyError:
+        print("Sorry, only letters in the Alphabet please.")
